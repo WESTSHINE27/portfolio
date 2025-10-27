@@ -1,15 +1,18 @@
+// style for the cotnainer of the img
 .image-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
+// style for the img
 .image-wrapper img {
   width: 100%;
   object-fit: contain;
   display: block;
 }
 
+// style for the pixel container
 .grid {
   position: absolute;
   inset: 0;
@@ -18,8 +21,10 @@
   grid-template-rows: repeat(20, 1fr);
 }
 
+// style for each of the pixel
 .tile {
-  background: #000000;
+  background: #212121;
   opacity: 1;
-  transition: opacity 1s ease-out;
+  transition: opacity 0.5s ease-out;
+  margin: -0.5px;
 }

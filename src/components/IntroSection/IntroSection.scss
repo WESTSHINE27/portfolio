@@ -1,46 +1,91 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
+// style for the content box of the whole intro section
+// arrange the place of the intro text container and the intro pfp container
+// set width and height
 .intro-section {
+  @include padding;
   @include flex-center;
   gap: 3rem;
   height: 100dvh;
   width: 100%;
-  @include respond-to(tablet) {
-    gap: 2rem;
-  }
-
+  min-height: 100dvh;
   @include respond-to(mobile) {
     gap: 2rem;
+    height: 100%;
     flex-direction: column;
+    justify-content: center;
   }
 }
 
+// style for the intro text container
+// set width and height
 .intro-text-container {
-  @include padding;
   flex: 2;
-  border: white 1px solid;
   width: 100%;
   height: 100%;
-  .text {
-    font-size: clamp(1rem, 5vmin, 5rem);
-    white-space: pre-wrap;
-    font-family: $font-title;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  @include respond-to(mobile) {
+    justify-content: center;
+    align-items: start;
+    flex: none;
   }
 }
 
+// style for the pfp container
+// set width and height
 .intro-pfp-container {
   @include flex-center;
-  @include padding;
   flex: 1;
   width: 100%;
   min-width: 300px;
   max-width: 400px;
   height: 100%;
-  border: white 1px solid;
+  @include respond-to(mobile) {
+    flex: none;
+  }
   img {
     width: 100%;
     object-fit: contain;
     border-radius: 1rem;
   }
+}
+
+// style for the intro section
+.intro-text-section {
+  width: 100%;
+  height: auto;
+}
+
+// style for text outlook
+.intro-text {
+  font-family: $font-title;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: #fe7743;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(254, 119, 67, 0.6);
+  @include respond-to(desktop) {
+    font-size: 42px;
+  }
+  @include respond-to(tablet) {
+    font-size: 36px;
+  }
+  @include respond-to(mobile) {
+    font-size: 32px;
+  }
+}
+
+// style for the typing text can absolute on it
+.relative-container {
+  position: relative;
+}
+
+// style for the typing text to reserve the place
+.typing-text-placeholder {
+  opacity: 0;
 }
