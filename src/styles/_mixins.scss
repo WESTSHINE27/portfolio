@@ -5,9 +5,9 @@
 }
 
 @mixin padding{
-  padding: 3rem;
+  padding: 1rem;
   @include respond-to(tablet){
-    padding: 2rem;
+    padding: 1rem;
   }
   @include respond-to(mobile){
     padding: 1rem;
@@ -20,6 +20,8 @@
   } @else if $breakpoint == tablet {
     @media (max-width: $tablet) { @content; }
   } @else if $breakpoint == desktop {
+    @media (max-width: $desktop) { @content; }
+  } @else if $breakpoint == large-desktop {
     @media (min-width: $desktop) { @content; }
   }
 }

@@ -4,7 +4,7 @@
 // style for the content box of the whole intro section
 // arrange the place of the intro text container and the intro pfp container
 // set width and height
-.intro-section {
+.content-section {
   @include padding;
   @include flex-center;
   gap: 3rem;
@@ -58,6 +58,7 @@
 .intro-text-section {
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 // style for text outlook
@@ -69,6 +70,9 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(254, 119, 67, 0.6);
+  @include respond-to(large-desktop) {
+    font-size: 48px;
+  }
   @include respond-to(desktop) {
     font-size: 42px;
   }

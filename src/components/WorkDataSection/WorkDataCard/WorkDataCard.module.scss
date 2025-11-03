@@ -1,0 +1,106 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+// style for the work data container outer layer
+.work-data-card-outer-layer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+}
+
+// style for the lighting effect and act like a border
+.work-data-card-outer-layer::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  inset: 0;
+
+  // lighting color
+  background: radial-gradient(
+    circle 150px at var(--x, 50%) var(--y, 50%),
+    #fff,
+    transparent 60%
+  );
+  // border color
+  background-color: rgb(99, 99, 99);
+
+  // use to select the area of the container is visible
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 3px;
+}
+
+// style for work data card inner layer 
+// the content div for word data card 
+.work-data-card-inner-layer {
+  @include padding;
+  position: absolute;
+  inset: 3px;
+  border-radius: 1rem;
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+}
+
+// style for the card title container 
+.card-title-container {
+  @include padding;
+  width: 100%;
+  height: 40%;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+}
+
+// style for the card title 
+.card-title {
+  @include respond-to(large-desktop) {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+  @include respond-to(desktop) {
+    font-size: 1.1rem;
+    line-height: 1.1;
+  }
+  @include respond-to(tablet) {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  @include respond-to(mobile) {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+}
+
+// style for the card number container 
+.card-number-container {
+  @include padding;
+  display: flex;
+  flex: 1;
+  justify-content: start;
+  align-items: center;
+}
+
+// style for the card number 
+.card-number {
+  font-family: $font-title;
+  color: #fe7743;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(254, 119, 67, 0.6);
+
+  @include respond-to(large-desktop) {
+    font-size: 4rem;
+  }
+  @include respond-to(desktop) {
+    font-size: 3rem;
+  }
+  @include respond-to(tablet) {
+    font-size: 3rem;
+  }
+  @include respond-to(mobile) {
+    font-size: 2.5rem;
+  }
+}

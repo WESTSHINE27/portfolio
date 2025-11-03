@@ -1,4 +1,4 @@
-import "./IntroSection.scss";
+import styles from "./IntroSection.module.scss";
 import PixelReveal from "./PixelRevealImage/PixelRevealImage";
 import pfp from "../../assets/imgs/pfp.png";
 import TypingIntro from "./TypingIntro/TypingIntro";
@@ -10,19 +10,24 @@ Nothing’s impossible
 — just learn, do, and improve.`;
 const IntroSection = () => {
   return (
-    <div className="intro-section">
+    <div className={styles["content-section"]}>
       {/* intro text section */}
-      <div className="intro-text-container">
-        <section className="intro-text-section relative-container">
+      <div className={styles["intro-text-container"]}>
+        <section className={`${styles["intro-text-section"]} ${styles["relative-container"]}`}>
           {/* intro text placeholder */}
           {/* to reserve space for typing animation */}
-          <h1 className="intro-text typing-text-placeholder">{introText}</h1>
+          <h1
+            className={`${styles["intro-text"]} ${styles["typing-text-placeholder"]}`}
+          >
+            {introText}
+          </h1>
           {/* typing text */}
-          <TypingIntro className="intro-text" text={introText} />
+          <TypingIntro className={styles["intro-text"]} text={introText} />
         </section>
       </div>
       {/* pfp section */}
-      <div className="intro-pfp-container bbh-sans-bogle-regular ">
+
+      <div className={styles["intro-pfp-container"]}>
         <PixelReveal src={pfp} />
       </div>
     </div>
