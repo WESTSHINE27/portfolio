@@ -1,5 +1,5 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 // style for the typing text
 // set absolute to make it overlaping on the placeholder text 

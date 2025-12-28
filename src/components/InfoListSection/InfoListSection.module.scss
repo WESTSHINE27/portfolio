@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.content-section {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  background-color: $secondary-bg-color;
+  z-index: 1;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.detail-div {
+  background: $bg-color;
+  width: 100dvw;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.detail-content {
+  @include padding;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  max-width: $max-content-width;
+}
+
+.project-pic {
+  min-width: 200px;
+  width: auto;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+}

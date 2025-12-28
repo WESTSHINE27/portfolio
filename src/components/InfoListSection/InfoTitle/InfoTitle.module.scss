@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.content-section {
+  @include padding;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  max-width: $max-content-width;
+  border-bottom: white 1px solid;
+  margin-bottom: 0.5rem;
+}
+
+.content-section:hover{
+  cursor: pointer;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
