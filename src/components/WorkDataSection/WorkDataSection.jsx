@@ -3,17 +3,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkDataCard from "./WorkDataCard/WorkDataCard";
 import styles from "./WorkDataSection.module.scss";
+import TechStackCarousel from "./TechStackCarousel/TechStackCarousel";
 
-// register plug in 
-// run the animation when we scroll and see it 
+// register plug in
+// run the animation when we scroll and see it
 gsap.registerPlugin(ScrollTrigger);
 
-// work data 
+// work data
 const workData = [
-  { title: "Years of experience", number: 1 },
-  { title: "Companies worked for", number: 2 },
-  { title: "Team projects participated in", number: 4 },
-  { title: "Freelance projects completed", number: 1 },
+  { title: "Years of experience", number: 88 },
+  { title: "Companies worked for", number: 168 },
+  { title: "Team projects participated in", number: 188 },
+  { title: "Freelance projects completed", number: 888 },
 ];
 
 const WorkDataSection = () => {
@@ -32,7 +33,7 @@ const WorkDataSection = () => {
       // gsap animation
       gsap.fromTo(
         el,
-        // from animation  
+        // from animation
         { innerText: 0 },
         // to animation
         {
@@ -57,7 +58,7 @@ const WorkDataSection = () => {
 
   // global mousemove listener for lighting animation effect to all work data card
   useEffect(() => {
-    // set the ticking to lock the function 
+    // set the ticking to lock the function
     // only run the function when previoud requestAnimationFrame is finish
     let ticking = false;
 
@@ -69,10 +70,10 @@ const WorkDataSection = () => {
           cardRefs.current.forEach((card) => {
             if (!card) return;
             const rect = card.getBoundingClientRect();
-            // calculate x and y 
+            // calculate x and y
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            // assign x and y as a property to the card 
+            // assign x and y as a property to the card
             card.style.setProperty("--x", `${x}px`);
             card.style.setProperty("--y", `${y}px`);
           });
@@ -81,7 +82,7 @@ const WorkDataSection = () => {
         ticking = true;
       }
     };
-    // add mouse move event listener 
+    // add mouse move event listener
     window.addEventListener("mousemove", handleMouseMove);
     // remove mouse move event listener when the component unmouted
     return () => window.removeEventListener("mousemove", handleMouseMove);
@@ -93,7 +94,7 @@ const WorkDataSection = () => {
       <div className={styles["work-data-grid-container"]}>
         {/* loop work data to generate work data card */}
         {workData.map((item, index) => (
-          // work data card 
+          // work data card
           <WorkDataCard
             key={index}
             ref={(el) => (cardRefs.current[index] = el)}
@@ -103,6 +104,10 @@ const WorkDataSection = () => {
             }
           />
         ))}
+      </div>
+      <div className={styles["tech-stack-container"]}>
+        <p className={styles["tech-stack-title"]}>Tech Stack</p>
+        <TechStackCarousel />
       </div>
     </div>
   );

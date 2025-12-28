@@ -32,8 +32,8 @@
   padding: 3px;
 }
 
-// style for work data card inner layer 
-// the content div for word data card 
+// style for work data card inner layer
+// the content div for word data card
 .work-data-card-inner-layer {
   @include padding;
   position: absolute;
@@ -44,11 +44,11 @@
   flex-direction: column;
 }
 
-// style for the card title container 
+// style for the card title container
 .card-title-container {
-  @include padding;
+  padding: 0.25rem;
   width: 100%;
-  height: 40%;
+  flex: 0 0 50%;
   border-bottom: 1px solid white;
   display: flex;
   justify-content: start;
@@ -56,7 +56,7 @@
   overflow: hidden;
 }
 
-// style for the card title 
+// style for the card title
 .card-title {
   @include respond-to(large-desktop) {
     font-size: 1.4rem;
@@ -76,16 +76,16 @@
   }
 }
 
-// style for the card number container 
+// style for the card number container
 .card-number-container {
-  @include padding;
+  padding: 0.25rem;
   display: flex;
-  flex: 1;
+  flex: 0 0 50%;
   justify-content: start;
   align-items: center;
 }
 
-// style for the card number 
+// style for the card number
 .card-number {
   font-family: $font-title;
   color: #fe7743;
