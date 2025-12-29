@@ -12,8 +12,33 @@
   z-index: 1;
 }
 
+.title-div {
+  @include padding;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: $max-content-width;
+}
+
 .title {
-  margin-bottom: 1rem;
+  font-family: $font-title;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  color: white;
+
+  @include respond-to(large-desktop) {
+    font-size: 4rem;
+  }
+  @include respond-to(desktop) {
+    font-size: 3rem;
+  }
+  @include respond-to(tablet) {
+    font-size: 3rem;
+  }
+  @include respond-to(mobile) {
+    font-size: 2.5rem;
+  }
 }
 
 .detail-div {
@@ -27,16 +52,16 @@
 .detail-content {
   @include padding;
   width: 100%;
-  display: flex;
-  justify-content: start;
-  align-items: start;
   max-width: $max-content-width;
 }
 
 .project-pic {
+  float: left;
+  margin: 0 20px 16px 0;
   min-width: 200px;
   width: auto;
   max-width: 600px;
   height: auto;
   object-fit: contain;
+  display: inline;
 }

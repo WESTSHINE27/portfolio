@@ -5,15 +5,27 @@ import ysabellLandingPagePreview from "../../assets/imgs/ysabell-landing-page-pr
 const InfoListSection = () => {
   return (
     <div className={styles["content-section"]}>
-      <h1 className={styles["title"]}>Project</h1>
+      <div className={styles["title-div"]}>
+        <h1 className={styles["title"]}>Project</h1>
+      </div>
       <InfoTitle
         title="Landing Page for Influencer Ysabell Tan"
         subtitle="Web Development"
       />
       <div className={styles["detail-div"]}>
-        <div className={styles["detail-content"]}>
-          <img className={styles["project-pic"]} loading="lazy" src={ysabellLandingPagePreview} alt="Ysabell Tan Landing Page Preview"/>
-        </div>
+        <article className={styles["detail-content"]}>
+          <figure>
+            <img
+              className={styles["project-pic"]}
+              loading="lazy"
+              src={ysabellLandingPagePreview}
+              alt="Ysabell Tan Landing Page Preview"
+            />
+          </figure>
+          {/* <figcaption className={styles[""]}>
+            Ysabell Tan influencer landing page web development project
+          </figcaption> */}
+        </article>
       </div>
     </div>
   );
