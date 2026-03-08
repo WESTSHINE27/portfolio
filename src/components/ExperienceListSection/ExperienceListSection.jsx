@@ -1,19 +1,19 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
-import styles from "./InfoListSection.module.scss";
-import InfoTitle from "./InfoTitle/InfoTitle.jsx";
+import styles from "../InfoListSection/InfoListSection.module.scss";
+import InfoTitle from "../InfoListSection/InfoTitle/InfoTitle.jsx";
 import ysabellLandingPagePreview from "../../assets/imgs/ysabell-landing-page-preview.png";
 
-const InfoListSection = () => {
+const ExperienceListSection = () => {
   const sectionRef = useRef(null);
   const innerContentRef = useRef(null);
   const detailRef1 = useRef(null);
+  const detailRef2 = useRef(null);
 
   const [openIndex, setOpenIndex] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsShowMore, setNeedsShowMore] = useState(false);
 
-  // Check if content is taller than viewport
   useEffect(() => {
     const checkHeight = () => {
       if (innerContentRef.current) {
@@ -61,10 +61,10 @@ const InfoListSection = () => {
     >
       <div ref={innerContentRef} className={styles["inner-wrapper"]}>
         <div className={styles["title-div"]}>
-          <h1 className={styles["title"]}>Project</h1>
+          <h1 className={styles["title"]}>Experience</h1>
         </div>
 
-        <InfoTitle title="Landing Page for Influencer Ysabell Tan" subtitle="Web Development" onClick={() => toggleDetail(1, detailRef1)} />
+        <InfoTitle title="Java Software Engineer" subtitle="Ant International" onClick={() => toggleDetail(1, detailRef1)} />
         <div ref={detailRef1} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
           <article className={styles["detail-content"]}>
             <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
@@ -72,6 +72,13 @@ const InfoListSection = () => {
           </article>
         </div>
 
+        <InfoTitle title="Software Engineer" subtitle="E-Group Solution Sdn. Bhd." onClick={() => toggleDetail(2, detailRef2)} />
+        <div ref={detailRef2} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
+          <article className={styles["detail-content"]}>
+            <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
+            <figcaption>Another project description here</figcaption>
+          </article>
+        </div>
       </div>
 
       {needsShowMore && !isExpanded && (
@@ -85,4 +92,4 @@ const InfoListSection = () => {
   );
 };
 
-export default InfoListSection;
+export default ExperienceListSection;

@@ -23,6 +23,20 @@ const WorkDataSection = () => {
   // reference for ligthing card animation
   const cardRefs = useRef([]);
 
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=1000",
+      pin: true,
+      scrub: true,
+      anticipatePin: 1,
+    });
+
+    return () => trigger.kill();
+  }, []);
+
   // Animate numbers on scroll
   useEffect(() => {
     // for each of the number inside the numberRefs []
@@ -51,7 +65,7 @@ const WorkDataSection = () => {
           onUpdate: function () {
             el.textContent = Math.floor(el.innerText);
           },
-        }
+        },
       );
     });
   }, []);
@@ -89,7 +103,7 @@ const WorkDataSection = () => {
   }, []);
 
   return (
-    <div className={styles["content-section"]}>
+    <div className={styles["content-section"]} ref={sectionRef}>
       {/* work data card section  */}
       <div className={styles["work-data-grid-container"]}>
         {/* loop work data to generate work data card */}

@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
-import styles from "./InfoListSection.module.scss";
-import InfoTitle from "./InfoTitle/InfoTitle.jsx";
+import styles from "../InfoListSection/InfoListSection.module.scss";
+import InfoTitle from "../InfoListSection/InfoTitle/InfoTitle.jsx";
 import ysabellLandingPagePreview from "../../assets/imgs/ysabell-landing-page-preview.png";
 
-const InfoListSection = () => {
+const EducationListSection = () => {
   const sectionRef = useRef(null);
   const innerContentRef = useRef(null);
   const detailRef1 = useRef(null);
+  const detailRef2 = useRef(null);
 
   const [openIndex, setOpenIndex] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -57,14 +58,14 @@ const InfoListSection = () => {
   return (
     <div 
       ref={sectionRef} 
-      className={`${styles["content-section"]} ${!isExpanded ? styles["collapsed"] : ""}`}
+      className={`${styles["content-section"]} ${styles["second-content-section"]} ${!isExpanded ? styles["collapsed"] : ""}`}
     >
       <div ref={innerContentRef} className={styles["inner-wrapper"]}>
         <div className={styles["title-div"]}>
-          <h1 className={styles["title"]}>Project</h1>
+          <h1 className={styles["title"]}>Education</h1>
         </div>
 
-        <InfoTitle title="Landing Page for Influencer Ysabell Tan" subtitle="Web Development" onClick={() => toggleDetail(1, detailRef1)} />
+        <InfoTitle title="Tunku Abdul Rahman University of Management and Technology (TAR UMT)" subtitle="Bachelor's degree, Information Technology" onClick={() => toggleDetail(1, detailRef1)} />
         <div ref={detailRef1} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
           <article className={styles["detail-content"]}>
             <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
@@ -72,6 +73,22 @@ const InfoListSection = () => {
           </article>
         </div>
 
+        <InfoTitle title="Tunku Abdul Rahman University of Management and Technology (TAR UMT)" subtitle="Diploma in Information Technology" onClick={() => toggleDetail(2, detailRef2)} />
+        <div ref={detailRef2} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
+          <article className={styles["detail-content"]}>
+            <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
+            <figcaption>Another project description here</figcaption>
+          </article>
+        </div>
+
+        <InfoTitle title="SMJK Kwang Hua" subtitle="SPM" onClick={() => toggleDetail(1, detailRef1)} />
+        <div ref={detailRef1} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
+          <article className={styles["detail-content"]}>
+            <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
+            <figcaption>Ysabell Tan influencer landing page</figcaption>
+          </article>
+        </div>
+        
       </div>
 
       {needsShowMore && !isExpanded && (
@@ -85,4 +102,4 @@ const InfoListSection = () => {
   );
 };
 
-export default InfoListSection;
+export default EducationListSection;

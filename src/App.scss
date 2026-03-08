@@ -4,7 +4,6 @@
 .main {
   @include flex-center;
   width: 100%;
-  max-width: 1200px;
   flex-direction: column;
 }
 

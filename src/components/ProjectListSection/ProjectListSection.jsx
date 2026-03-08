@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
-import styles from "./InfoListSection.module.scss";
-import InfoTitle from "./InfoTitle/InfoTitle.jsx";
+import styles from "../InfoListSection/InfoListSection.module.scss";
+import InfoTitle from "../InfoListSection/InfoTitle/InfoTitle.jsx";
 import ysabellLandingPagePreview from "../../assets/imgs/ysabell-landing-page-preview.png";
 
-const InfoListSection = () => {
+const ProjectListSection = () => {
   const sectionRef = useRef(null);
   const innerContentRef = useRef(null);
   const detailRef1 = useRef(null);
@@ -33,30 +33,37 @@ const InfoListSection = () => {
     gsap.to(sectionRef.current, {
       maxHeight: "none", // Remove the cap
       duration: 0.5,
-      ease: "power2.out"
+      ease: "power2.out",
     });
   };
 
   const toggleDetail = (index, ref) => {
     if (openIndex === index) {
-      gsap.to(ref.current, { height: 0, y: -10, opacity: 0, duration: 0.4, ease: "power2.inOut" });
+      gsap.to(ref.current, {
+        height: 0,
+        y: -10,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+      });
       setOpenIndex(null);
     } else {
-      [detailRef1, detailRef2].forEach((r) => {
+      [detailRef1].forEach((r) => {
         if (r.current) gsap.set(r.current, { height: 0, opacity: 0 });
       });
 
-      gsap.fromTo(ref.current, 
+      gsap.fromTo(
+        ref.current,
         { height: 0, y: -10, opacity: 0 },
-        { height: "auto", y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }
+        { height: "auto", y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
       );
       setOpenIndex(index);
     }
   };
 
   return (
-    <div 
-      ref={sectionRef} 
+    <div
+      ref={sectionRef}
       className={`${styles["content-section"]} ${!isExpanded ? styles["collapsed"] : ""}`}
     >
       <div ref={innerContentRef} className={styles["inner-wrapper"]}>
@@ -64,14 +71,45 @@ const InfoListSection = () => {
           <h1 className={styles["title"]}>Project</h1>
         </div>
 
-        <InfoTitle title="Landing Page for Influencer Ysabell Tan" subtitle="Web Development" onClick={() => toggleDetail(1, detailRef1)} />
-        <div ref={detailRef1} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
+        <InfoTitle
+          title="Landing Page for Influencer Ysabell Tan"
+          subtitle="Web Development"
+          onClick={() => toggleDetail(1, detailRef1)}
+        />
+        <div
+          ref={detailRef1}
+          className={styles["detail-div"]}
+          style={{ height: 0, overflow: "hidden" }}
+        >
           <article className={styles["detail-content"]}>
-            <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
-            <figcaption>Ysabell Tan influencer landing page</figcaption>
+            <figure>
+              <img
+                className={styles["project-pic"]}
+                src={ysabellLandingPagePreview}
+                alt="Preview"
+              />
+            </figure>
+            <figcaption>
+              <h1>Influencer Landing Page</h1>
+              <h2>Project Overview</h2>Designed and developed a modern,
+              high-performance landing page for the influencer Ysabell, focusing
+              on smooth animations, engaging user experience, and optimized
+              content loading. The goal was to create a visually impactful page
+              that enhances personal branding and improves user engagement.
+              <br></br>
+              <br></br>
+              Click here to view the page:
+              <a
+                href="https://www.ysabell-tan.com/"
+                target="_blank"
+                rel="landing page link"
+                className={styles["link"]}
+              >
+                Link
+              </a>
+            </figcaption>
           </article>
         </div>
-
       </div>
 
       {needsShowMore && !isExpanded && (
@@ -85,4 +123,4 @@ const InfoListSection = () => {
   );
 };
 
-export default InfoListSection;
+export default ProjectListSection;
