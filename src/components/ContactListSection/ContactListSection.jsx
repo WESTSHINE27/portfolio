@@ -2,13 +2,18 @@ import React, { useEffect, useRef } from "react";
 import styles from "./ContactListSection.module.scss";
 import infoStyles from "../InfoListSection/InfoListSection.module.scss";
 import ContactCard from "./ContactCard/ContactCard";
+import ModelViewer from "./ModelViewer/ModelViewer";
+import emailIcon from "../../assets/icons/email.svg";
+import phoneIcon from "../../assets/icons/phone.svg";
+import linkedinIcon from "../../assets/icons/linkedin.svg";
+import githubIcon from "../../assets/icons/github.svg";  
 
 // contact data
 const contactData = [
-  { title: "Email" },
-  { title: "Phone" },
-  { title: "LinkedIn" },
-  { title: "GitHub" },
+  { title: "Email", icon: emailIcon },
+  { title: "Phone", icon: phoneIcon },
+  { title: "LinkedIn", icon: linkedinIcon },
+  { title: "GitHub", icon: githubIcon },
 ];
 
 const ContactListSection = () => {
@@ -53,6 +58,7 @@ const ContactListSection = () => {
         <h1 className={infoStyles["title"]}>Experience</h1>
       </div>
       <div className={styles["main-content-section"]}>
+        <div className={styles["model-section"]}><ModelViewer/></div>
         <div className={styles["contact-list-section"]}>
           {/* loop contact data to generate contact data card */}
           {contactData.map((item, index) => (
@@ -60,11 +66,10 @@ const ContactListSection = () => {
             <ContactCard
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              title={item.title}
+              {...item}
             />
           ))}
         </div>
-        <div className={styles["model-section"]}>apple</div>
       </div>
     </div>
   );

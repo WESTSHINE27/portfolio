@@ -80,14 +80,6 @@ const EducationListSection = () => {
             <figcaption>Another project description here</figcaption>
           </article>
         </div>
-
-        <InfoTitle title="SMJK Kwang Hua" subtitle="SPM" onClick={() => toggleDetail(1, detailRef1)} />
-        <div ref={detailRef1} className={styles["detail-div"]} style={{ height: 0, overflow: "hidden" }}>
-          <article className={styles["detail-content"]}>
-            <figure><img className={styles["project-pic"]} src={ysabellLandingPagePreview} alt="Preview" /></figure>
-            <figcaption>Ysabell Tan influencer landing page</figcaption>
-          </article>
-        </div>
         
       </div>
 

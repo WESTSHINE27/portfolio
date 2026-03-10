@@ -1,0 +1,57 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header-nav-bar {
+  @include padding;
+  @include flex-center;
+  display: flex;
+  flex-direction: row;
+  width: 100dvw;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  
+}
+
+.content {
+  max-width: $max-content-width;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  font-family: $font-title;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #fe7743;
+    border-bottom: 2px solid #fe7743;
+  }
+  @include respond-to(large-desktop) {
+    font-size: 2rem;
+  }
+  @include respond-to(desktop) {
+    font-size: 1.75rem;
+  }
+  @include respond-to(tablet) {
+    font-size: 1.25rem;
+  }
+  @include respond-to(mobile) {
+    font-size: 1.25rem;
+  }
+}

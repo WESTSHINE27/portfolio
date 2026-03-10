@@ -6,12 +6,14 @@ import ProjectListSection from "./components/ProjectListSection/ProjectListSecti
 import EducationListSection from "./components/EducationListSection/EducationListSection";
 import ExperienceListSection from "./components/ExperienceListSection/ExperienceListSection";
 import ContactListSection from "./components/ContactListSection/ContactListSection";
+import HeaderNavBar from "./components/HeaderNavBar/HeaderNavBar";
 
 function App() {
 
   return (
     <>
       <div className="main">
+        <HeaderNavBar />
         <Threads amplitude={2} distance={0} enableMouseInteraction={false} />
         <IntroSection/>
         <WorkDataSection />
