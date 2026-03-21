@@ -2,55 +2,124 @@
 @use "../../styles/mixins" as *;
 
 .header-nav-bar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------- */
+/* TABLET / DESKTOP */
+/* ---------------- */
+
+.tablet-nav {
   @include padding;
   @include flex-center;
-  display: flex;
-  flex-direction: row;
-  width: 100dvw;
-  background-color: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 50;
-  
-}
-
-.content {
-  max-width: $max-content-width;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
+  height: fit-content;
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  @include respond-to(mobile) {
+    display: none;
+  }
 }
 
-nav ul {
-  list-style: none;
+.desktop-nav-content-container {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+  flex-direction: row-reverse;
+  width: 100%;
+  max-width: $max-content-width;
 }
+
+/* ---------------- */
+/* MOBILE NAV */
+/* ---------------- */
+
+.mobile-nav {
+  display: none;
+  position: relative;
+  height: 60px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1rem;
+
+  @include respond-to(mobile) {
+    display: flex;
+  }
+}
+
+/* MENU BUTTON */
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* MOBILE DROPDOWN MENU */
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+}
+
+/* OPEN STATE */
+
+.open {
+  display: block;
+  background: rgb(24, 24, 24);
+}
+
+/* LINKS */
 
 nav ul li a {
   font-family: $font-title;
   text-decoration: none;
   color: white;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: 0.2s;
 
   &:hover {
     color: #fe7743;
     border-bottom: 2px solid #fe7743;
   }
+
   @include respond-to(large-desktop) {
     font-size: 2rem;
   }
+
   @include respond-to(desktop) {
     font-size: 1.75rem;
   }
+
   @include respond-to(tablet) {
     font-size: 1.25rem;
   }
+
   @include respond-to(mobile) {
     font-size: 1.25rem;
   }

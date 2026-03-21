@@ -12,6 +12,11 @@
   display: flex;
   flex-direction: column;
   max-width: $max-content-width;
+
+  @include respond-to(mobile) {
+    margin-bottom: 20px;
+    height: 100%;
+  }
 }
 
 .main-content-section {

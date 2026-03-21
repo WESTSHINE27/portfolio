@@ -32,6 +32,7 @@ const WorkDataSection = () => {
       pin: true,
       scrub: true,
       anticipatePin: 1,
+      pinSpacing: false,
     });
 
     return () => trigger.kill();
@@ -103,7 +104,11 @@ const WorkDataSection = () => {
   }, []);
 
   return (
-    <div className={styles["content-section"]} ref={sectionRef}>
+    <div
+      id="workdatasection"
+      className={styles["content-section"]}
+      ref={sectionRef}
+    >
       {/* work data card section  */}
       <div className={styles["work-data-grid-container"]}>
         {/* loop work data to generate work data card */}

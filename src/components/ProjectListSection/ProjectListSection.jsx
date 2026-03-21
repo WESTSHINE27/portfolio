@@ -63,6 +63,7 @@ const ProjectListSection = () => {
 
   return (
     <div
+      id="projectlistsection"
       ref={sectionRef}
       className={`${styles["content-section"]} ${!isExpanded ? styles["collapsed"] : ""}`}
     >

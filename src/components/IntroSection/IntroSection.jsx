@@ -10,10 +10,12 @@ Nothing’s impossible
 — just learn, do, and improve.`;
 const IntroSection = () => {
   return (
-    <div className={styles["content-section"]}>
+    <div id="introsection" className={styles["content-section"]}>
       {/* intro text section */}
       <div className={styles["intro-text-container"]}>
-        <section className={`${styles["intro-text-section"]} ${styles["relative-container"]}`}>
+        <section
+          className={`${styles["intro-text-section"]} ${styles["relative-container"]}`}
+        >
           {/* intro text placeholder */}
           {/* to reserve space for typing animation */}
           <h1

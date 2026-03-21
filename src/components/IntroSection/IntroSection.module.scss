@@ -12,6 +12,8 @@
   width: 100%;
   min-height: 100dvh;
   max-width: $max-content-width;
+  position: relative;
+  z-index: 30;
   @include respond-to(mobile) {
     gap: 2rem;
     height: 100%;
@@ -70,7 +72,9 @@
   color: #fe7743;
   white-space: pre-wrap;
   word-wrap: break-word;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px rgba(254, 119, 67, 0.6);
+  text-shadow:
+    2px 2px 6px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(254, 119, 67, 0.6);
   @include respond-to(large-desktop) {
     font-size: 48px;
   }

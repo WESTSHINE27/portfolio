@@ -6,7 +6,7 @@ import ModelViewer from "./ModelViewer/ModelViewer";
 import emailIcon from "../../assets/icons/email.svg";
 import phoneIcon from "../../assets/icons/phone.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
-import githubIcon from "../../assets/icons/github.svg";  
+import githubIcon from "../../assets/icons/github.svg";
 
 // contact data
 const contactData = [
@@ -53,12 +53,14 @@ const ContactListSection = () => {
   }, []);
 
   return (
-    <div className={styles["content-section"]}>
+    <div id="contactlistsection" className={styles["content-section"]}>
       <div className={infoStyles["title-div"]}>
-        <h1 className={infoStyles["title"]}>Experience</h1>
+        <h1 className={infoStyles["title"]}>Contact</h1>
       </div>
       <div className={styles["main-content-section"]}>
-        <div className={styles["model-section"]}><ModelViewer/></div>
+        <div className={styles["model-section"]}>
+          <ModelViewer />
+        </div>
         <div className={styles["contact-list-section"]}>
           {/* loop contact data to generate contact data card */}
           {contactData.map((item, index) => (
